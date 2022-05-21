@@ -42,7 +42,7 @@ public class FixedTermAccountController {
 		return ftarepo.findById(fixedTermAccount.getId()).flatMap(f->{
 			f.setAccountingBalance(fixedTermAccount.getAccountingBalance());
 			log.info("a FixedTermAccount was updated");
-			return Mono.just(f);
+			return ftarepo.save(f);
 		});
 	}
 	
