@@ -10,4 +10,5 @@ public interface IFixedTermAccountService {
 	public Mono<FixedTermAccount> findById(String id);
 	public Mono<FixedTermAccount> save(FixedTermAccount fixedTermAccount);
 	public Mono<Void> delete(FixedTermAccount fixedTermAccount);
+	public Flux<FixedTermAccount> findByIdCustomerPerson(String idCustomerPerson);
 }

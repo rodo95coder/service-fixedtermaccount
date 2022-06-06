@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.nttdata.bootcamp.models.FixedTermAccount;
 import com.nttdata.bootcamp.services.IFixedTermAccountService;
-
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -56,6 +55,12 @@ public class FixedTermAccountController {
 	public Mono<Void> delete(@RequestBody FixedTermAccount fixedTermAccount){
 		log.info("a FixedTermAccount was deleted");
 		return ftarepo.delete(fixedTermAccount);
+	}
+	
+	@GetMapping("/findByIdCustomerPerson/{idCustomerPerson}")
+	public Flux<FixedTermAccount> findAllByIdCustomerPerson(String idCustomerPerson){
+		log.info("all FixedTermAccounts by idCustomerPerson were consulted");
+		return ftarepo.findByIdCustomerPerson(idCustomerPerson);
 	}
 
 }
